@@ -1,0 +1,140 @@
+<fieldset>
+<legend> Vous êtes membre du site </legend>
+
+<!-- On délimite un formulaire avec la balise <form> à laquelle il faut ajouter deux attributs : method (mode d'envoi des données) et action (page vers laquelle le visiteur sera redirigé après envoi du formulaire et qui traitera les informations).-->
+<form method="post" action="connexion.php">
+   <p>
+     <!-- La balise <label> permet d'écrire un libellé. On l'associe à un champ de formulaire avec l'attribut for, qui doit avoir la même valeur que l'id du champ de formulaire.
+     Placeholder size et maxlenght sont des options.-->
+     <label for="pseudo" >Votre pseudo</label> :
+     <!-- Autofocus permet de placer le curseur du visiteur dans le champ pseudo par défaut -->
+     <input type="text" name="pseudo" id="pseudo" size="30" maxlength="10" autofocus/>
+
+     <br />
+            <label for="pass">Votre mot de passe :</label>
+             <!-- On utilise le type password qui permet d'avoir les caractères cachés -->
+            <input type="password" name="pass" id="pass" />
+     <br />
+            <a href="newpassword.php"> J'ai oublié mon mot de passe</a>
+     <br />
+            <input type="submit" value="Connexion" />
+   </p>
+</form>
+</fieldset>
+<br />
+<fieldset>
+<legend>Vous souhaitez vous inscrire :</legend>
+<form method="post" action="inscription.php">
+   <p>
+     <!-- La balise <label> permet d'écrire un libellé. On l'associe à un champ de formulaire avec l'attribut for, qui doit avoir la même valeur que l'id du champ de formulaire.
+     Placeholder size et maxlenght sont des options-->
+     <label for="firstname">Prénom (obligatoire)</label> :
+     <input type="text" name="firstname" id="firstname" size="30" maxlength="10" required/>
+     <br />
+     <label for="lastname">Nom (obligatoire)</label> :
+     <input type="text" name="lastname" id="lastname" size="30" maxlength="10" required/>
+     <br />
+     <!-- Il est possible de saisir des champs email, tel, url, nombre, search(avec loupe), range(curseur), color, date, time, week, month, datetime (avec gestion du décalage horaire) , datemine-local (sans gestion du décalage horaire). -->
+     <label for="email">Adresse eMail (obligatoire)</label> :
+     <input type="email" name="email" id="email" required/>
+     <br />
+     <label for="pseudo">Choississez un pseudo (obligatoire)</label> :
+     <input type="text" name="pseudo" id="pseudo" placeholder="Ex : Popeye" size="30" maxlength="10" required/>
+
+     <br />
+            <label for="pass">Entrez un mot de passe (obligatoire)</label>
+             <!-- On utilise le type password qui permet d'avoir les caractères cachés -->
+            <input type="password" name="pass" id="pass" required/>
+     <br />
+            <label for="pass-confirmation">Confirmer le mot de passe</label>
+                    <!-- On utilise le type password qui permet d'avoir les caractères cachés -->
+            <input type="password" name="pass-confirmation" id="pass-confirmation" required/>
+     <br />
+     <label for="pays">Dans quel pays habitez-vous ?</label><br />
+     <select name="pays" id="pays">
+         <optgroup label="Europe">
+             <option value="france">France</option>
+             <option value="espagne">Espagne</option>
+             <option value="italie">Italie</option>
+             <option value="royaume-uni">Royaume-Uni</option>
+         </optgroup>
+         <optgroup label="Amérique">
+             <option value="canada">Canada</option>
+             <option value="etats-unis">Etats-Unis</option>
+         </optgroup>
+         <optgroup label="Asie">
+             <option value="chine">Chine</option>
+             <option value="japon">Japon</option>
+         </optgroup>
+     </select>
+     <br />
+            <p>
+                   Cochez les options que vous souhaiteriez ajouter :<br />
+                   <input type="checkbox" name="install" id="install" checked /> <label for="install">Installation à domicile (+30€)</label><br />
+                   <input type="checkbox" name="color" id="color" /> <label for="color">Couleur Spéciale (+15€)</label><br />
+                   <input type="checkbox" name="usb" id="usb" /> <label for="usb"> Port USB (offert)</label><br />
+                   <input type="checkbox" name="top" id="top" /> <label for="top">Facade Complémentaire (+10€)</label>
+               </p>
+     <br />
+               Comment j'ai connu l'increvable ?
+     <br />
+          <label for="number">Combien de machine je souhaite commander ?</label>
+          <input type="number" id="number" name="number" value="1" min="1" max="5"/>
+     <br />
+    </p>
+
+    <p>Choisissez l'une des options de paiement suivantes :</p><div id="payment_methods_error"></div><div id="edit-payment-method" class="form-radios translate"><div class="form-item form-type-radio form-item-payment-method translate">
+     <label class="form-label label-radio" for="edit-payment-method-cc"> <input data-parsley-required="true" data-parsley-required-message="obligatoire" class="radio notranslate" data-parsley-trigger="change" data-parsley-errors-container="#payment_methods_error" type="radio" id="edit-payment-method-cc" name="payment_method" value="cc" /><i class="icon-radio"></i>
+    <div class="outside payment-cc" rel="cc">
+                            <div class="inside">
+                                <img src="https://www.tesla.com/tesla_theme/assets/img/own/own-paymethod-icons-noamex-lg.png?20150720" />
+                                </div>
+                            </div> </label>
+    </div>
+    <div class="form-item form-type-radio form-item-payment-method translate">
+     <label class="form-label label-radio" for="edit-payment-method-wt"> <input data-parsley-required="true" data-parsley-required-message="obligatoire" class="radio notranslate" data-parsley-trigger="change" data-parsley-errors-container="#payment_methods_error" type="radio" id="edit-payment-method-wt" name="payment_method" value="wt" /><i class="icon-radio"></i>
+    <div class="outside payment-wt" rel="wt">
+                            <div class="inside">
+                                <span>Payer plus tard ou par<br /><i>virement bancaire</i><span class="wt-chevrons">     </span></span>
+                            </div>
+                        </div> </label>
+    </div>
+
+
+    <form action="/your-charge-code" method="POST" id="payment-form">
+        <span class="payment-errors"></span>
+
+          <div class="form-row">
+            <label>
+              <span>Card Number</span>
+              <input type="text" size="20" data-stripe="number">
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>Expiration (MM/YY)</span>
+              <input type="text" size="2" data-stripe="exp_month">
+            </label>
+            <span> / </span>
+            <input type="text" size="2" data-stripe="exp_year">
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>CVC</span>
+              <input type="text" size="4" data-stripe="cvc">
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>Billing Postal Code</span>
+              <input type="text" size="6" data-stripe="address_zip">
+            </label>
+          </div>
+
+          <input type="submit" class="submit" value="Submit Payment">
+        </form>
+
+</fieldset>
