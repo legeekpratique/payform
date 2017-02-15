@@ -13,13 +13,17 @@ html {
   -webkit-text-size-adjust: 100%; }
 
 body {
+  background: #F8A434;
+  font-family: 'Lato', sans-serif;
+  color: #FDFCFB;
+  text-align: center;
   margin: 0; }
 
 form {
       background: rgba($form-bg,.9);
       padding: 40px;
-      max-width: 1200px;
-      margin: 40px auto;
+      width: 650px;
+      margin: 17% auto;
       border-radius: $br;
       box-shadow: 0 4px 10px 4px rgba($form-bg,.3);
 
@@ -114,7 +118,10 @@ textarea {
   margin: 0; }
 
 button {
-  overflow: visible; }
+  overflow: visible;
+  height: 44px;
+  border: none;
+}
 
 button,
 select {
